@@ -1,15 +1,29 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <button (click)="isCollapsed = !isCollapsed" class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+          data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="posts" routerLinkActive="router-link-active">Produits</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="add"
+           routerLinkActive="active">Creation produit</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Posts</h2>
-
-      <ul class="list-group">
-
-        <app-post *ngFor="let post of posts"
-                  [postTitle]="post.title"
-                  [date]="post.created_at"
-                  [postLikes]="post.loveIts"></app-post>
-      </ul>
+      <router-outlet>
+      </router-outlet>
     </div>
   </div>
 </div>

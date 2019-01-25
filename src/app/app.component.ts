@@ -7,26 +7,7 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'typeBlog';
-  lastDate = new Date();
+  isCollapsed: boolean = true;
 
-  posts = [
-    {
-      title: 'Mon premier post',
-      loveIts: 4,
-      created_at: this.lastDate
-    },
-    {
-      title: 'Mon deuxieme post',
-      loveIts: -7,
-      created_at: this.lastDate
-
-    },
-    {
-      title: 'Mon troisieme post',
-      loveIts: 0,
-      created_at: this.lastDate
-
-    },
-  ];
 
 }

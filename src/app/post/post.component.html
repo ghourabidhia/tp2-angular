@@ -1,0 +1,8 @@
+<h2>Posts</h2>
+
+<ul class="list-group">
+  <app-post-celule *ngFor="let post of posts"
+                   [postTitle]="post.title"
+                   [date]="post.created_at"
+                   [postLikes]="post.loveIts"></app-post-celule>
+</ul>

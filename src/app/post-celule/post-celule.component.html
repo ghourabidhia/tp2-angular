@@ -1,0 +1,19 @@
+<li [ngClass]="'list-group-item : true'"
+    [ngStyle]="{ backgroundColor : getColor()}">
+
+  <div>
+    <h6 style="float: right; color: darkgrey"> {{date | date: 'short'}} </h6>
+    <h2 [ngClass]="{'greenClass': postLikes>0,
+     'redClass': postLikes<0}"> {{ postTitle }}</h2>
+
+    <p [ngClass]="{'greenClass': postLikes>0,
+     'redClass': postLikes<0}"> {{ postTitle }}>Not him old music think his found enjoy merry. Listening acuteness
+      dependent at or an. Apartments thoroughly
+      unsatiable terminated sex how themselves. She are ten hours wrong walls stand early. Domestic perceive on an
+      ladyship extended received do. Why jennings our whatever his learning gay perceive. Is against no he without
+      subject. Bed connection unreserved preference partiality not unaffected. Years merit trees so think in hoped we
+      as. </p>
+    <button class="btn btn-success" (click)="love()">Love!!</button>
+    <button class="btn btn-danger" (click)="dontLove()" style="margin-left: 5px">Don't love!!</button>
+  </div>
+</li>
