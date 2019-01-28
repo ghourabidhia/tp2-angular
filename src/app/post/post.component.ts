@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {el} from '@angular/platform-browser/testing/src/browser_util';
+import {ISubject} from '../domains/isubject';
+import {SubjectService} from '../services/subject.service';
 
 @Component({
   selector: 'app-post',
@@ -8,37 +10,14 @@ import {el} from '@angular/platform-browser/testing/src/browser_util';
 })
 export class PostComponent implements OnInit {
 
-  lastDate = new Date();
+  posts: ISubject[];
 
-  posts = [
-    {
-      title: 'Mon premier post',
-      loveIts: 4,
-      created_at: this.lastDate
-    },
-    {
-      title: 'Mon deuxieme post',
-      loveIts: -7,
-      created_at: this.lastDate
-
-    },
-    {
-      title: 'Mon troisieme post',
-      loveIts: 0,
-      created_at: this.lastDate
-
-    },
-  ];
-
-  @Input() postTitle: string;
-  @Input() postLikes: number;
-  @Input() date: Date;
-
-
-  constructor() {
+  constructor(private _subjectService: SubjectService) {
   }
 
+
   ngOnInit() {
+    this.posts = this._subjectService.posts;
   }
 
 

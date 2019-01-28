@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Subject} from 'rxjs';
+import {SubjectService} from '../services/subject.service';
 
 @Component({
   selector: 'app-post-celule',
@@ -10,9 +12,11 @@ export class PostCeluleComponent implements OnInit {
   @Input() postTitle: string;
   @Input() postLikes: number;
   @Input() date: Date;
+  @Input() postDetails: string;
+  @Input() index: number;
 
 
-  constructor() {
+  constructor(private _subjectService: SubjectService) {
   }
 
   ngOnInit() {
@@ -30,9 +34,13 @@ export class PostCeluleComponent implements OnInit {
 
   love() {
     this.postLikes++;
+    this._subjectService.saveLoves(this.index, this.postLikes);
+    console.log(this._subjectService.saveLoves(this.index, this.postLikes));
   }
 
   dontLove() {
     this.postLikes--;
+    this._subjectService.saveLoves(this.index, this.postLikes);
+    console.log(this._subjectService.saveLoves(this.index, this.postLikes));
   }
 }

@@ -1,8 +1,10 @@
 <h2>Posts</h2>
 
 <ul class="list-group">
-  <app-post-celule *ngFor="let post of posts"
+  <app-post-celule *ngFor="let post of posts; let i = index"
                    [postTitle]="post.title"
                    [date]="post.created_at"
-                   [postLikes]="post.loveIts"></app-post-celule>
+                   [postDetails]="post.details"
+                   [postLikes]="post.loveIts"
+                   [index]="i"></app-post-celule>
 </ul>
