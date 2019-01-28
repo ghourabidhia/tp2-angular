@@ -7,9 +7,9 @@
      'redClass': postLikes<0}"> {{ postTitle }}</h2>
 
     <p [ngClass]="{'greenClass': postLikes>0,
-     'redClass': postLikes<0}"> {{ postTitle }}> {{ postDetails }} </p>
+     'redClass': postLikes<0}"> {{ postDetails }} </p>
     <button class="btn btn-success" (click)="love()">Love!!</button>
     <button class="btn btn-danger" (click)="dontLove()" style="margin-left: 5px">Don't love!!</button>
-    <button class="btn btn-danger float-lg-right ">Supprimer post</button>
+    <button class="btn btn-danger float-sm-right" (click)="deleteItem()">Supprimer post</button>
   </div>
 </li>

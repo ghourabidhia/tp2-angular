@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {ISubject} from '../domains/isubject';
+import {Subject} from '../domains/subject';
 import {SubjectService} from '../services/subject.service';
 
 @Component({
@@ -33,7 +33,7 @@ export class NewPostComponent implements OnInit {
 
   onSubmitForm() {
     const formValue = this.subjectForm.value;
-    const newSubject: ISubject = new ISubject(
+    const newSubject: Subject = new Subject(
       formValue['title'],
       formValue['details'],
       0,

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ISubject} from '../domains/isubject';
+import {Subject} from '../domains/subject';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class SubjectService {
   lastDate = new Date();
 
 
-  posts: ISubject[] = [
+  posts: Subject[] = [
     {
       title: 'Mon premier post',
       details: 'Not him old music think his found enjoy merry. Listening acutenessdependent at or an. Apartments thoroughly',
@@ -42,8 +42,14 @@ export class SubjectService {
     return this.posts[index].loveIts;
   }
 
-  addSubject(subject: ISubject) {
+  addSubject(subject: Subject) {
     this.posts.push(subject);
+  }
+
+  deleteSubject(index: number) {
+    if (index !== -1) {
+      this.posts.splice(index, 1);
+    }
   }
 
 

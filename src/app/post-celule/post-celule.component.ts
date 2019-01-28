@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Subject} from 'rxjs';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Subject, Subscription} from 'rxjs';
 import {SubjectService} from '../services/subject.service';
 
 @Component({
@@ -7,13 +7,14 @@ import {SubjectService} from '../services/subject.service';
   templateUrl: './post-celule.component.html',
   styleUrls: ['./post-celule.component.css']
 })
-export class PostCeluleComponent implements OnInit {
+export class PostCeluleComponent implements OnInit, OnDestroy {
 
   @Input() postTitle: string;
   @Input() postLikes: number;
   @Input() date: Date;
   @Input() postDetails: string;
   @Input() index: number;
+  counterSubscription: Subscription;
 
 
   constructor(private _subjectService: SubjectService) {
@@ -29,7 +30,6 @@ export class PostCeluleComponent implements OnInit {
     if (this.postLikes < 0) {
       return 'pink';
     }
-
   }
 
   love() {
@@ -42,5 +42,13 @@ export class PostCeluleComponent implements OnInit {
     this.postLikes--;
     this._subjectService.saveLoves(this.index, this.postLikes);
     console.log(this._subjectService.saveLoves(this.index, this.postLikes));
+  }
+
+  deleteItem() {
+    this._subjectService.deleteSubject(this.index);
+  }
+
+  ngOnDestroy() {
+    this.counterSubscription.unsubscribe();
   }
 }

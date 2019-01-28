@@ -1,4 +1,4 @@
-export class ISubject {
+export class Subject {
   title: string;
   details: string;
   loveIts: number;

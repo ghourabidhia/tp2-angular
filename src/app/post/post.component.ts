@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {el} from '@angular/platform-browser/testing/src/browser_util';
-import {ISubject} from '../domains/isubject';
+import {Subject} from '../domains/subject';
 import {SubjectService} from '../services/subject.service';
 
 @Component({
@@ -10,7 +10,7 @@ import {SubjectService} from '../services/subject.service';
 })
 export class PostComponent implements OnInit {
 
-  posts: ISubject[];
+  posts: Subject[];
 
   constructor(private _subjectService: SubjectService) {
   }
